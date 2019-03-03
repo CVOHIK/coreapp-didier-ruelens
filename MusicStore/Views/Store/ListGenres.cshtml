@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MusicStore.Models.Genre>
+
+@{
+    ViewData["Title"] = "ListGenres";
+
+}
+
+<h2>ListGenres</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var genre in Model) {
+        <tr>
+            <td>
+                <a asp-controller="Store" 
+                    asp-action="ListAlbums"
+                    @*asp-route="@genre.GenreID"*@>@Html.DisplayFor(modelItem => genre.Name)</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
